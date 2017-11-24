@@ -1,28 +1,21 @@
 package com.service.service.controller;
 
 
-import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import io.servicecomb.provider.pojo.RpcSchema;
 
-import io.servicecomb.provider.rest.common.RestSchema;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.CsePojoDemoCodegen", date = "2017-11-24T02:28:02.199Z")
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.CseSpringDemoCodegen", date = "2017-11-24T02:23:29.234Z")
-
-@RestSchema(schemaId = "service")
-@RequestMapping(path = "/service", produces = MediaType.APPLICATION_JSON)
-public class ServiceImpl {
+@RpcSchema(schemaId = "service")
+public class ServiceImpl implements Service{
 
     @Autowired
-    private ServiceDelegate userServiceDelegate;
+    private ServiceDelegate serviceDelegate;
 
 
-    @RequestMapping(value = "/helloworld",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    public String helloworld( @RequestParam(value = "name", required = true) String name){
+    public String helloworld(String name) {
 
-        return userServiceDelegate.helloworld(name);
+        return serviceDelegate.helloworld(name);
     }
 
 }

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class ServiceDelegate {
+public class ServiceDelegate implements Service {
 
     public String helloworld(String name){
 
